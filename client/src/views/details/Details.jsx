@@ -1,0 +1,41 @@
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getDogById } from '../../redux/actions';
+import NavBar from '../../components/navbar/NavBar';
+import styles from './Details.module.css';
+
+const Details = () => {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const dogDetails = useSelector(state => state.dogDetail);
+
+    useEffect(() => {
+        dispatch(getDogById(id))
+    }, [dispatch, id])
+
+    return (
+        <div>
+            <div>
+                <NavBar/>
+                <hr />
+            </div>
+            <div>
+                <h2>Detalles</h2>
+                <h3>{ dogDetails.name }</h3>
+
+                <div>
+                    <p>ID: { dogDetails.id }</p>
+                    <img src={ dogDetails.image } alt={ dogDetails.name } />
+                    <p>Name: { dogDetails.name }</p>
+                    <p>Height: { dogDetails.height }</p>
+                    <p>Weight: { dogDetails.weight }</p>
+                    <p>Life Span: { dogDetails.life_span}</p>
+                    <p>Temperament: { dogDetails.temperament ? dogDetails.temperament.map(a => a.trim()).join(', '): [] }</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Details;

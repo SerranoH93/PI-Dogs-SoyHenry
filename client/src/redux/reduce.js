@@ -1,9 +1,10 @@
-import { GET_ALL_DOGS } from './action-types';
+import { GET_ALL_DOGS, GET_DOG_BY_ID } from './action-types';
 
 
 const initialState = {
     dogs: [], //*Get all dogs
-    dogsGetted: [] //* Copy all dogs
+    dogsGetted: [], //* Copy all dogs
+    dogDetail: [] //* Dog detail
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ const rootReducer = (state = initialState, action) => {
                 dogs: [...action.payload],
                 dogsGetted: action.payload
 
+            };
+        case GET_DOG_BY_ID:
+            return {
+                ...state,
+                dogDetail: action.payload
             };
         default:
             return {...state};
