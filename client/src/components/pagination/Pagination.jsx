@@ -3,7 +3,7 @@ import styles from './Pagination.module.css';
 
 const Pagination = ({currentPage, onPageChange, pageSize, totalIteams}) => {
     
-    const totalPages = Math.ceil(totalIteams / pageSize);
+    const totalPages = Math.ceil(totalIteams / pageSize);    
 
     const handlePageChange = (newPage) => {
         if(newPage >= 1 && newPage <= totalPages) {

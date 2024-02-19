@@ -31,3 +31,8 @@ export const getDogById = (dogId) => {
         }
     }
 }
+
+export const postNewDog = (newDog) => {
+    const { name, image, height, weight, life_span, temperament} = newDog;
+
+}
