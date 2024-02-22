@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_DOG_BY_ID } from './action-types';
+import { GET_ALL_DOGS, GET_DOG_BY_ID, GET_DOGS_BY_NAME, REFRESH } from './action-types';
 
 
 const initialState = {
@@ -22,6 +22,17 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 dogDetail: action.payload
             };
+        case GET_DOGS_BY_NAME:
+            return {
+                ...state,
+                dogsGetted: action.payload
+            }
+        case REFRESH:
+            return {
+                ...state,               
+                dogs: [...action.payload],
+                dogsGetted: action.payload
+            }
         default:
             return {...state};
     }

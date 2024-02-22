@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_DOG_BY_ID } from './action-types';
+import { GET_ALL_DOGS, GET_DOG_BY_ID, GET_DOGS_BY_NAME, REFRESH } from './action-types';
 import axios from 'axios';
 
 const serverURL = 'http://localhost:3001';
@@ -32,7 +32,30 @@ export const getDogById = (dogId) => {
     }
 }
 
-export const postNewDog = (newDog) => {
-    const { name, image, height, weight, life_span, temperament} = newDog;
+export const getDogsByName = (name) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`${serverURL}/dogs/?name=${name}`);            
+            
+            return dispatch({
+                type: GET_DOGS_BY_NAME,
+                payload: data
+            })
+        } catch (error) {
+            alert(error.message)
+        }
+    }
+}
 
+export const refresh = () => {
+    return async (dispatch) => {
+        try {
+            return dispatch({
+                type: REFRESH,
+                payload: getAllDogs
+            })
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 }
