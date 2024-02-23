@@ -1,4 +1,12 @@
-import { GET_ALL_DOGS, GET_DOG_BY_ID, GET_DOGS_BY_NAME, REFRESH } from './action-types';
+import { GET_ALL_DOGS, 
+    GET_DOG_BY_ID, 
+    GET_DOGS_BY_NAME, 
+    GET_TEMPERAMENTS, 
+    FILTER_BY_ORIGN, 
+    FILTER_BY_TEMPERAMENT,
+    ORDER_BY_NAME,
+    ORDER_BY_WEIGHT, 
+    REFRESH } from './action-types';
 import axios from 'axios';
 
 const serverURL = 'http://localhost:3001';
@@ -42,20 +50,54 @@ export const getDogsByName = (name) => {
                 payload: data
             })
         } catch (error) {
-            alert(error.message)
+            alert(error.message);
         }
     }
 }
 
-export const refresh = () => {
+export const  getTemperaments = () => {
     return async (dispatch) => {
         try {
+            const { data } = await axios.get(`${serverURL}/dogs/temperaments`);
+            const temperaments = data;
             return dispatch({
-                type: REFRESH,
-                payload: getAllDogs
+                type: GET_TEMPERAMENTS,
+                payload: temperaments
             })
         } catch (error) {
-            alert(error.message)
+            alert(error.message);
         }
     }
+}
+
+export const filterByOrigin = (origin) => {
+    return {
+        type: FILTER_BY_ORIGN,
+        payload: origin
+    }
+}
+
+export const filterByTemperament = (temperament) => {
+    return {
+        type: FILTER_BY_TEMPERAMENT,
+        payload: temperament
+    }
+}
+
+export const orderByName = (orderName) => {
+    return {
+        type: ORDER_BY_NAME,
+        payload: orderName
+    }
+}
+
+export const orderByWeight = (orderWeight) => {
+    return {
+        type: ORDER_BY_WEIGHT,
+        payload: orderWeight
+    }
+}
+
+export const refresh = () => {
+    return getAllDogs()
 }

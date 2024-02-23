@@ -44,11 +44,11 @@ const getDogsByName = async (req, res) => {
             life_span: dog.life_span,
             temperament: dog.temperament ? dog.temperament.split(',').map(a => a.trim()) : []
         }));
-        const allDogs = localDogsToJSON.concat(newDogList);
+        let allDogs = localDogsToJSON.concat(newDogList);
         if(allDogs.length > 15) {
-            slicedListDogs = allDogs.slice(0, 15);            
+            allDogs = allDogs.slice(0, 15);
         }
-        return res.status(200).json(slicedListDogs);
+        return res.status(200).json(allDogs);
     } catch (error) {
         return res.status(400).send(error.message)
     }

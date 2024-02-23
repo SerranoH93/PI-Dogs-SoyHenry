@@ -1,18 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { getAllDogs, getDogsByName, refresh } from '../../redux/actions';
+import { 
+    getAllDogs, 
+    getDogsByName, 
+    filterByOrigin, 
+    getTemperaments, 
+    filterByTemperament, 
+    orderByName, 
+    orderByWeight, 
+    refresh } from '../../redux/actions';
 import Cards from '../../components/cards/Cards';
 import Pagination from '../../components/pagination/Pagination';
 import NavBar from '../../components/navbar/NavBar';
 import SearchBar from '../../components/searchbar/SearchBar';
 import styles from './Home.module.css'
+import Filters from '../../components/filters/Filters';
 
 const Home = () => {
     const dispatch = useDispatch();
     const dogs = useSelector(state => state.dogsGetted);
+    const temperamentsGetted = useSelector(state => state.temperaments);
 
     useEffect(() => {        
         dispatch(getAllDogs());
+        dispatch(getTemperaments());
     }, [dispatch])
 
     //* Pagination
@@ -34,22 +45,58 @@ const Home = () => {
         document.getElementById('search').value = '';
     }
 
+    //*Filters
+    //? Origin filter
+    const handleFilterByOrigin = event => {
+        event.preventDefault();
+        dispatch(filterByOrigin(event.target.value))
+    }
+
+    //? Temperament filter
+    const handleFilterByTemperament = event => {
+        event.preventDefault();
+        dispatch(filterByTemperament(event.target.value))       
+    }
+    
+    //*Order
+    //? By Name
+    const handleOrderByName = event => {
+        event.preventDefault();        
+        dispatch(orderByName(event.target.value))       
+    } 
+
+    //? By Weigth
+    const handleOrderByWeight = event => {
+        event.preventDefault();        
+        dispatch(orderByWeight(event.target.value))       
+    } 
+
     //* Refresh
     const handleRefresh = () => {
         dispatch(refresh())
     }
 
-
     return (
         <div>
             <div>
-                <NavBar handleRefresh={handleRefresh}/>
+                <NavBar 
+                    handleRefresh={handleRefresh}                    
+                />
                 <hr />
                 <SearchBar
                     handleInput={handleInput}
                     handleButton={handleButton}
                     input={input}
                 />
+                <hr />
+                <Filters 
+                    handleFilterByOrigin={handleFilterByOrigin}
+                    handleFilterByTemperaments={handleFilterByTemperament}
+                    temperamentsGetted={temperamentsGetted}
+                    handleOrderByWeight={handleOrderByWeight}
+                    handleOrderByName={handleOrderByName}                   
+                />
+                    
                 <hr />
             </div>
             <div className={styles.cardsContainer}>
