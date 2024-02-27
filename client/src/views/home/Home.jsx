@@ -31,7 +31,8 @@ const Home = () => {
     const [pageSize] = useState(8);
     const starIndex = (currentPage - 1) * pageSize;
     const endIndex = currentPage * pageSize;
-    const dogsToShow = dogs.slice(starIndex, endIndex); 
+    console.log({dogs})
+    const dogsToShow = dogs ? dogs.slice(starIndex, endIndex) : []; 
 
     //* Search by name
     const [input, setInput] = useState("");
@@ -80,7 +81,7 @@ const Home = () => {
         <div>
             <div>
                 <NavBar 
-                    handleRefresh={handleRefresh}                    
+                    handleRefresh={handleRefresh}                                        
                 />
                 <hr />
                 <SearchBar

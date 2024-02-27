@@ -6,7 +6,8 @@ import { GET_ALL_DOGS,
     FILTER_BY_TEMPERAMENT, 
     ORDER_BY_NAME,
     ORDER_BY_WEIGHT, 
-    REFRESH  } from './action-types';
+    REFRESH,  
+    POST_NEW_DOG} from './action-types';
 
 
 const initialState = {
@@ -40,6 +41,10 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 temperaments: action.payload        
             };
+        case POST_NEW_DOG:
+            return {
+                ...state
+            }
         case FILTER_BY_ORIGN:
             const filterByOrigin = state.dogs.filter(origin =>{
                 if(action.payload === 'All Origins') {

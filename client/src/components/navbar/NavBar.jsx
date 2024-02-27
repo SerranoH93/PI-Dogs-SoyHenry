@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css'
 
 
-const NavBar = ({handleRefresh}) => {
-    return (
-        <div>
+const NavBar = ({handleRefresh}) => {    
+    return (        
+        <div>            
             <Link to='/home'>
                 <button onClick={handleRefresh}>HOME</button>
             </Link>
-            <Link>
+            <Link to='/createDog'>
                 <button>CREATE NEW</button>
             </Link>
             <Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import CreateNew from './views/createnew/CreateNew'
 import Details from './views/details/Details';
 import Home from './views/home/Home';
 import LandingPage from './views/landingpage/LandingPage';
@@ -23,6 +24,10 @@ function App() {
                 <Route 
                     path='/home'
                     element={ <Home/> }
+                />
+                <Route
+                    path='/createDog'
+                    element={ <CreateNew/> }
                 />
                 <Route
                     path='/detail/:id'

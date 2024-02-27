@@ -6,7 +6,8 @@ import { GET_ALL_DOGS,
     FILTER_BY_TEMPERAMENT,
     ORDER_BY_NAME,
     ORDER_BY_WEIGHT, 
-    REFRESH } from './action-types';
+    REFRESH, 
+    POST_NEW_DOG} from './action-types';
 import axios from 'axios';
 
 const serverURL = 'http://localhost:3001';
@@ -68,6 +69,22 @@ export const  getTemperaments = () => {
             alert(error.message);
         }
     }
+}
+
+export const postNewDog = (newDog) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(`${serverURL}/dogs`, newDog);
+            if(data.error) throw new Error(data.error)
+            window.alert("New dog was created successfully.");
+            return dispatch({
+                type: POST_NEW_DOG,
+                payload: data
+            })        
+        } catch (error) {
+            alert(error.message);
+        }
+    }    
 }
 
 export const filterByOrigin = (origin) => {
