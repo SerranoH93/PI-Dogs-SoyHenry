@@ -1,0 +1,27 @@
+.filtersContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    margin-bottom: 15px;  
+}
+
+.filtersByOrigin,
+.filtersByTemperament,
+.alphabeticalOrder,
+.orderByWeight {    
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    color: var(--primary-text-color);
+}
+
+.filtersByOrigin select,
+.filtersByTemperament select,
+.alphabeticalOrder select,
+.orderByWeight select {
+    border: 1px solid var(--quaternary-color);
+    padding: 0.6em 1.2em;
+    border-radius: 50px;
+    margin-top: 2px;
+    color: var(--primary-text-color);
+}

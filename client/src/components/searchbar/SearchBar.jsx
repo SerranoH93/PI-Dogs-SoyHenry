@@ -3,8 +3,9 @@ import styles from './SearchBar.module.css';
 
 const SearchBar = ({handleInput, handleButton, input}) => {
     return (
-        <div>
+        <div className={styles.searchBarContainer}>
             <input 
+                className={styles.searchInput}
                 type='text'
                 name='search'
                 id='search'

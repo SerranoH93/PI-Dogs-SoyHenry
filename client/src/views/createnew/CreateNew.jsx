@@ -44,17 +44,17 @@ function CreateNew() {
             ...newDog,
             [event.target.name]: event.target.value
         })
-        // setError(validations({
-        //     ...newDog,
-        //     [event.target.name]: event.target.value
-        // }))
+        setError(validations({
+            ...newDog,
+            [event.target.name]: event.target.value
+        }))
     }
 
     const handleSelectChange = (event) => {
         event.preventDefault()
         const { value } = event.target
         if(dogNewTemperaments.includes(value)) {
-            const newArray = dogNewTemperaments.filter(option !== value)
+            const newArray = dogNewTemperaments.filter(option => option !== value)
             setDogNewTemperaments(newArray);            
         } else {
             setDogNewTemperaments(() => {
@@ -87,10 +87,10 @@ function CreateNew() {
     return (
         <div>
             <NavBar/>
-            <hr />
+            <div className={styles.createNewContainer}>
             <h2>Create a new dog breed.</h2>
-            <form action="">
-                <div>
+            <form action=''>
+                <div className={styles.nameContainer}>
                     <label>Name:</label>
                     <input 
                         type='text'
@@ -98,62 +98,76 @@ function CreateNew() {
                         value={newDog.name}
                         onChange={handleChange} 
                         placeholder='Enter a new name' />
-                    <span>{errors.name}</span>
+                    <p className={styles.errorShower}>{errors.name}</p>                
+                </div> 
 
-                    <label>Image:</label>
+                <div className={styles.imageContainer}>
+                    <label> URL image:</label>
                     <input 
                         type='text'
                         name='image'
                         value={newDog.image}
                         onChange={handleChange}
                         placeholder='Enter a URL image' />
-                    <span>{errors.image}</span>
+                    <p className={styles.errorShower}>{errors.image}</p>                
+                </div>  
 
-                    <label>Height diference</label>
+                <div className={styles.heightContainer}>
+                    <label>Height diference:</label>
                     <input 
                         type='text'
                         name='height'
                         value={newDog.height}
                         onChange={handleChange}
                         placeholder='Enter a Height diference' />
-                    <span>{errors.height}</span>
+                    <p className={styles.errorShower}>{errors.height}</p>                
+                </div> 
 
-                    <label>Weight diference</label>
+                <div className={styles.weightContainer}>
+                    <label>Weight diference:</label>
                     <input 
                         type='text'
                         name='weight'
                         value={newDog.weight}
                         onChange={handleChange}
                         placeholder='Enter a Weight diference'/>
-                    <span>{errors.weight}</span>
+                    <p className={styles.errorShower}>{errors.weight}</p>                
+                </div>
 
-                    <label>Life Span</label>
+                <div className={styles.lifeSpanContainer}>
+                    <label>Life Span:</label>
                     <input 
                         type='text'
                         name='life_span'
                         value={newDog.life_span}
                         onChange={handleChange}
                         placeholder='Enter a Weight diference' />
-                    <span>{errors.life_span}</span>
-                </div>                
-                <div>
+                    <p className={styles.errorShower}>{errors.life_span}</p>
+                </div>
+
+                <div className={styles.selectTemperaments}>
                     <p>Select temperaments:</p>
                     <select multiple  onChange={handleSelectChange}>
                         <option className='option' value=''>Select a temperament</option>
                         {temperaments.map((temperament) => (
-                            <option className='option' key={temperament.id} value={temperament.id}>{temperament.name}</option>
-                            
+                            <option className='option' key={temperament.id} value={temperament.id}>{temperament.name}</option>                            
                         ))}
-                    </select>                    
-                    <p>Selected options:</p>
-                    <ul>
-                        {dogNewTemperaments.map((temperament, index) => (
-                            <li key={index}>{temperament.name}</li>
-                        ))}
-                    </ul>
+                    </select>                  
                 </div> 
-
-                <button
+                
+                <div className={styles.showSelectTemperaments}>
+                    <p>Selected options:</p>   
+                    <div className={styles.temperamentsSelectedButton}>
+                        {dogNewTemperaments.map((temperament, index) => (
+                            <button key={index}>{temperament.name}</button>
+                        ))}                    
+                    </div>                 
+                                            
+                    <p className={styles.errorShower}>{errors.temperament}</p>
+                </div> 
+                
+                <div className={styles.handleButtonContainer}>
+                    <button
                     onClick={handleSubmit}
                     type='submit'
                     disabled={
@@ -168,8 +182,9 @@ function CreateNew() {
                 <Link to='/home'>
                     <button>Cancelar</button>
                 </Link>
-
+                </div>
             </form>
+            </div>            
         </div>
     )
     

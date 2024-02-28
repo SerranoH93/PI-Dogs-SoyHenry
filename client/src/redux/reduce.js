@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { GET_ALL_DOGS, 
     GET_DOG_BY_ID, 
     GET_DOGS_BY_NAME, 
@@ -46,9 +47,9 @@ const rootReducer = (state = initialState, action) => {
                 ...state
             }
         case FILTER_BY_ORIGN:
-            const filterByOrigin = state.dogs.filter(origin =>{
-                if(action.payload === 'All Origins') {
-                    return origin;
+            const filterByOrigin = state.dogs.filter(origin => {
+                if (action.payload === 'All Origins') {
+                    return true;
                 } else if (action.payload === 'DataBase') {
                     return typeof origin.id !== "number";
                 } else {

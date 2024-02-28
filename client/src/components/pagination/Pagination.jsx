@@ -12,7 +12,7 @@ const Pagination = ({currentPage, onPageChange, pageSize, totalIteams}) => {
     }
 
     return (
-        <div>
+        <div className={styles.paginationContainer}>
             <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage===1}>
                 Previus
             </button>

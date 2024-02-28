@@ -1,0 +1,21 @@
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    margin-bottom: 15px;  
+}
+
+.navbarContainer img {
+    width: 200px;
+    height: 200px;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContainer button {
+    margin-right: 15px;
+}

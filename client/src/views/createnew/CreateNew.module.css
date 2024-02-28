@@ -1,0 +1,82 @@
+.createNewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;     
+}
+
+.createNewContainer h2 {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    margin: 15px 0 15px 0;
+}
+
+.nameContainer,
+.imageContainer,
+.heightContainer,
+.weightContainer,
+.lifeSpanContainer {
+    margin-bottom: 20px;
+}
+
+.nameContainer label,
+.imageContainer label,
+.heightContainer label,
+.weightContainer label,
+.lifeSpanContainer label {
+    margin-right: 10px;
+    color: var(--primary-text-color);
+    font-weight: bold;
+}
+
+.nameContainer input,
+.imageContainer input,
+.heightContainer input,
+.weightContainer input,
+.lifeSpanContainer input {
+    border: 1px solid var(--quaternary-color);
+    padding: 0.6em 1.2em;
+    border-radius: 50px;
+}
+
+.selectTemperaments,
+.showSelectTemperaments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-text-color);
+    font-weight: bold; 
+    margin-bottom: 20px;
+}
+
+.selectTemperaments select {
+    border: 1px solid var(--quaternary-color);
+    padding: 0.6em 1.2em;
+    border-radius: 5px;
+}
+
+.temperamentsSelectedButton {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.temperamentsSelectedButton button {
+    background-color: var(--tertiary-color);
+    margin: 15px 5px 5px 0;
+    cursor: default;
+}
+
+.handleButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.handleButtonContainer button {
+    margin-right: 20px
+}
+

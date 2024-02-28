@@ -82,14 +82,13 @@ const Home = () => {
             <div>
                 <NavBar 
                     handleRefresh={handleRefresh}                                        
-                />
-                <hr />
+                />                
                 <SearchBar
                     handleInput={handleInput}
                     handleButton={handleButton}
                     input={input}
                 />
-                <hr />
+                
                 <Filters 
                     handleFilterByOrigin={handleFilterByOrigin}
                     handleFilterByTemperaments={handleFilterByTemperament}
@@ -98,9 +97,9 @@ const Home = () => {
                     handleOrderByName={handleOrderByName}                   
                 />
                     
-                <hr />
+                
             </div>
-            <div className={styles.cardsContainer}>
+            <div>
                 <Cards
                     dogs={dogsToShow} />
             </div>

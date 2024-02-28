@@ -5,14 +5,9 @@ import styles from './NotFound.module.css';
 const NotFound = () => {
 
     return (
-        <div>
-            <div>
-                <img className={styles.imageNotFound} src="https://media.istockphoto.com/id/1250923288/vector/error-404-template-with-cosmos-background-page-not-found-message.jpg?s=170667a&w=0&k=20&c=XgOvtmMwa-8d5k20nTD-0Hh3c_e2ArQQUUL7TYuq-sk=" alt="Not Found" />
-                <div>
-                    <Link to='/home'><button >Go back!</button></Link>
-                </div>
-                
-            </div>
+        <div className={styles.notFoundContainer}>
+            <img className={styles.imageNotFound} src="https://media.istockphoto.com/id/1250923288/vector/error-404-template-with-cosmos-background-page-not-found-message.jpg?s=170667a&w=0&k=20&c=XgOvtmMwa-8d5k20nTD-0Hh3c_e2ArQQUUL7TYuq-sk=" alt="Not Found" />
+            <Link to='/home'><button >Go back!</button></Link>
         </div>
     );
 } 

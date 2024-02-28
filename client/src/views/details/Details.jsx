@@ -16,22 +16,21 @@ const Details = () => {
 
     return (
         <div>
-            <div>
-                <NavBar/>
-                <hr />
-            </div>
-            <div>
+            <NavBar />
+            <div className={styles.detailsContainer}>
                 <h2>Detalles</h2>
-                <h3>{ dogDetails.name }</h3>
-
-                <div>
-                    <p>ID: { dogDetails.id }</p>
-                    <img src={ dogDetails.image } alt={ dogDetails.name } />
-                    <p>Name: { dogDetails.name }</p>
-                    <p>Height: { dogDetails.height }</p>
-                    <p>Weight: { dogDetails.weight }</p>
-                    <p>Life Span: { dogDetails.life_span}</p>
-                    <p>Temperament: { dogDetails.temperament ? dogDetails.temperament.map(a => a.trim()).join(', '): [] }</p>
+                <h3>{dogDetails.name}</h3>
+                <p>ID: {dogDetails.id}</p>
+                <img src={dogDetails.image} alt={dogDetails.name} />
+                <p>Name: {dogDetails.name}</p>
+                <p>Height: {dogDetails.height}</p>
+                <p>Weight: {dogDetails.weight}</p>
+                <p>Life Span: {dogDetails.life_span}</p>
+                <p>Temperament:</p> 
+                <div className={styles.detailsTemperamentContainer}>
+                    {dogDetails.temperament ? dogDetails.temperament.map((temp, index) => (
+                        <button key={index}>{temp.trim()}</button>
+                    )) : []}
                 </div>
             </div>
         </div>

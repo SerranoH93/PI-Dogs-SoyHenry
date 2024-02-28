@@ -1,0 +1,19 @@
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.searchInput {
+    margin-right: 10px;
+    width: 15%;
+    border: 1px solid var(--quaternary-color);
+    padding: 0.6em 1.2em;
+    border-radius: 50px;
+}
+
+.searchInput:focus {
+    width: 25%;
+    transition-duration: 300ms;
+}
