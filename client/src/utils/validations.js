@@ -19,21 +19,21 @@ function validations ({name, image, height, weight, life_span, temperament}) {
     }
 
     if(validateNumbers(height)) {
-        errors.height = 'The first value debe ser menor al segundo'
+        errors.height = 'The first value should be less than the second value.'
     }
 
     if(!inputParameters.test(weight)) {
         errors.weight = 'The format must be 00-00'
     }
     if(validateNumbers(weight)) {
-        errors.weight = 'The first value debe ser menor al segundo'
+        errors.weight = 'The first value should be less than the second value.'
     }
 
     if(!inputParameters.test(life_span)) {
         errors.life_span = 'The format must be 00-00'
     }
     if(validateNumbers(life_span)) {
-        errors.life_span = 'The first value debe ser menor al segundo'
+        errors.life_span = 'The first value should be less than the second value.'
     }
 
     if(temperament.length < 1) errors.temperament = 'There must be at least 1 temperament'
