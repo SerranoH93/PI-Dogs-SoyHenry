@@ -7,7 +7,7 @@ const NavBar = ({ handleRefresh }) => {
         <div className= {styles.navbarContainer}>
             <div className='image-container'>
                 <Link to='/home'>
-                <img src="./img/logo-page.png" alt="logo" />
+                <img src="/img/logo-page.png" alt="logo" />
                 </Link>
             </div>
             <div className= {styles.buttonContainer}>
@@ -17,7 +17,7 @@ const NavBar = ({ handleRefresh }) => {
                 <Link to='/createDog'>
                     <button>CREATE NEW 🐺</button>
                 </Link>
-                <Link>
+                <Link to='/about'>
                     <button>ABOUT 🧑🏻‍💻</button>
                 </Link>
                 <Link to='/'>

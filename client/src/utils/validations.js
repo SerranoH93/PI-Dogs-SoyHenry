@@ -14,11 +14,44 @@ function validations ({name, image, height, weight, life_span, temperament}) {
 
     if (!url.test(image) || !imageurl.test(image)) errors.image = 'Must provide a valid URL image';
 
-    if(!inputParameters.test(height)) errors.height = 'The format must be 00-00'
-    if(!inputParameters.test(weight)) errors.weight = 'The format must be 00-00'
-    if(!inputParameters.test(life_span)) errors.life_span = 'The format must be 00-00'
+    if(!inputParameters.test(height)) {
+        errors.height = 'The format must be 00-00'
+    }
+
+    if(validateNumbers(height)) {
+        errors.height = 'The first value debe ser menor al segundo'
+    }
+
+    if(!inputParameters.test(weight)) {
+        errors.weight = 'The format must be 00-00'
+    }
+    if(validateNumbers(weight)) {
+        errors.weight = 'The first value debe ser menor al segundo'
+    }
+
+    if(!inputParameters.test(life_span)) {
+        errors.life_span = 'The format must be 00-00'
+    }
+    if(validateNumbers(life_span)) {
+        errors.life_span = 'The first value debe ser menor al segundo'
+    }
 
     if(temperament.length < 1) errors.temperament = 'There must be at least 1 temperament'
+
+    return errors;
+}
+
+const validateNumbers = (value) => {
+    const valueSplit = value.split('-');
+
+    if (valueSplit.length == 2) {
+        const first = parseInt(valueSplit[0]);
+        const second = parseInt(valueSplit[1]);
+
+        return first > second;
+    }
+
+    return true;
 }
 
 export default validations;

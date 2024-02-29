@@ -51,30 +51,35 @@ const Home = () => {
     const handleFilterByOrigin = event => {
         event.preventDefault();
         dispatch(filterByOrigin(event.target.value))
+        setCurrentPage(1)
     }
 
     //? Temperament filter
     const handleFilterByTemperament = event => {
         event.preventDefault();
-        dispatch(filterByTemperament(event.target.value))       
+        dispatch(filterByTemperament(event.target.value))  
+        setCurrentPage(1)     
     }
     
     //*Order
     //? By Name
     const handleOrderByName = event => {
         event.preventDefault();        
-        dispatch(orderByName(event.target.value))       
+        dispatch(orderByName(event.target.value))     
+        setCurrentPage(1)  
     } 
 
     //? By Weigth
     const handleOrderByWeight = event => {
         event.preventDefault();        
-        dispatch(orderByWeight(event.target.value))       
+        dispatch(orderByWeight(event.target.value))    
+        setCurrentPage(1)   
     } 
 
     //* Refresh
     const handleRefresh = () => {
         dispatch(refresh())
+        setInput('')
     }
 
     return (

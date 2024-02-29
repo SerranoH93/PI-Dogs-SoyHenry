@@ -7,7 +7,14 @@ import { GET_ALL_DOGS,
     ORDER_BY_NAME,
     ORDER_BY_WEIGHT, 
     REFRESH, 
-    POST_NEW_DOG} from './action-types';
+    POST_NEW_DOG,
+    SET_ORIGIN_FILTER,
+    SET_TEMPERAMENT_FILTER,
+    SET_NAME_FILTER,
+    SET_WEIGHT_FILTER,
+    APPLY_FILTERS
+} from './action-types';
+    
 import axios from 'axios';
 
 const serverURL = 'http://localhost:3001';
@@ -117,4 +124,40 @@ export const orderByWeight = (orderWeight) => {
 
 export const refresh = () => {
     return getAllDogs()
+}
+
+export const setOrigin = (value) => {
+    return {
+        type: SET_ORIGIN_FILTER,
+        payload: value
+    }
+}
+
+export const setTemperament = (value) => {
+    return {
+        type: SET_TEMPERAMENT_FILTER,
+        payload: value
+    }
+}
+
+export const setName = (value) => {
+    return {
+        type: SET_NAME_FILTER,
+        payload: value
+    }
+}
+
+export const setWeight = (value) => {
+    return {
+        type: SET_WEIGHT_FILTER,
+        payload: value
+    }
+}
+
+export const applyFilters = () => {
+    return {
+        type: APPLY_FILTERS,
+        payload: {}
+    }
+    
 }
