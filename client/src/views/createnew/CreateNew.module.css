@@ -56,6 +56,15 @@
     border-radius: 5px;
 }
 
+.nameContainer p,
+.imageContainer p,
+.heightContainer p,
+.weightContainer p,
+.lifeSpanContainer p {
+    color: red;
+}
+
+
 .temperamentsSelectedButton {
     display: flex;
     flex-wrap: wrap;

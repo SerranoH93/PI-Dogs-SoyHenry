@@ -1,0 +1,13 @@
+.textContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    margin-top: 25px;
+}
+
+.textContainer p {
+    width: 50%;
+    justify-content: center;
+    line-height: 1.5rem;
+    color: var(--primary-text-color);
+}

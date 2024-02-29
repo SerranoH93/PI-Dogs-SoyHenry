@@ -37,7 +37,7 @@ function validations ({name, image, height, weight, life_span, temperament}) {
     }
 
     if(temperament.length < 1) errors.temperament = 'There must be at least 1 temperament'
-
+    
     return errors;
 }
 
