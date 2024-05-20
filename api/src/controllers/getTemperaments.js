@@ -5,7 +5,7 @@ const URL_API = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`;
 
 const getTemperaments = async (req, res) => {
     try {
-        const localTemperaments = await Temperament.findAll();
+        const localTemperaments = await Temperament.findAll();            
         if (localTemperaments.length > 0) {
             return res.status(200).json(localTemperaments);
         } else {
@@ -16,10 +16,10 @@ const getTemperaments = async (req, res) => {
                 }
                 return []
             });
-            const temperamentsGotten = [...new Set(temperamentsFromAPI)].sort();
+            const temperamentsGotten = [...new Set(temperamentsFromAPI)].sort();            
             const temperamentsToDB = await Temperament.bulkCreate(
                 temperamentsGotten.map(temperament => ({ name: temperament }))
-            );
+            );      
             return res.status(200).json(temperamentsToDB);
         }
     } catch (error) {
